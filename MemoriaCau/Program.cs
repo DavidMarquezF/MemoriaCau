@@ -33,26 +33,17 @@ namespace MemoriaCau
                 }
                 dni = o.DNI;
             });
-            
+
             if (dni == -1)
             {
                 return;
             }
 
-            /* bool correctDNI = Int32.TryParse(Console.ReadLine(), out dni);
-            if(!correctDNI){
-                Console.WriteLine("DNI no vàlid");
-                return;
-            }*/
             int h = (int)Math.Truncate(dni / 333.0);
             int optIndex = h % 11;
             int m = h * 256;
 
             var option = ProblemOptions.getOption(optIndex);
-
-            Console.WriteLine("H: {0}", h);
-            Console.WriteLine("Opció: {0}", optIndex);
-            Console.WriteLine("m: {0:X}", m);
 
             IUbicationAlgorithm<int> cache = null;
             switch (option.UbicationAlgorithm)
@@ -101,8 +92,6 @@ namespace MemoriaCau
                 sb.AppendLine(a.ToString());
             }
             File.WriteAllText(fileTable.FullName, sb.ToString());
-
-            Console.Write(sb.ToString());
 
             sb.Clear();
             sb.AppendLine(string.Format("DNI: {0}", dni));
