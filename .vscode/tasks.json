@@ -17,9 +17,15 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/MemoriaCau/MemoriaCau.csproj"
+                "${workspaceFolder}/MemoriaCau/MemoriaCau.csproj",
+                "-c",
+                "Release",
+                "-r",
+                "ubuntu.18.10-x64",
+                "--self-contained"
             ],
-            "problemMatcher": "$tsc"
+            "problemMatcher": "$tsc",
+            "group": "build"
         },
         {
             "label": "watch",
