@@ -69,7 +69,7 @@ namespace MemoriaCau
 
                 access.Add(cache.Read(_getAdress('a', m, i), 0).AddElement(string.Format("a[{0}]", i)));
                 access.Add(cache.Read(_getAdress('c', m, i), 0).AddElement(string.Format("c[{0}]", i)));
-                access.Add(cache.Read(_getAdress('e', m, i), 0).AddElement(string.Format("e[{0}]", i)));
+                access.Add(cache.Write(_getAdress('e', m, i), 0).AddElement(string.Format("e[{0}]", i)));
             }
 
 #if DEBUG
