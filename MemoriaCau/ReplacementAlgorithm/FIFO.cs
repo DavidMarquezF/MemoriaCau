@@ -64,8 +64,8 @@ namespace MemoriaCau
                 _setData.Add(tag, createdNode);
                 return new CacheEvent<T>(false, isWrite ? AccessType.Write : AccessType.Read, createdNode, replaced);
             }
-
-            return new CacheEvent<T>(false, isWrite ? AccessType.Write : AccessType.Read);
+            var nodeData = new Block<T>(tag,value);
+            return new CacheEvent<T>(false, isWrite ? AccessType.Write : AccessType.Read, nodeData);
         }
         private UInt32 _oldest()
         {

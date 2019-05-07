@@ -11,14 +11,6 @@ namespace MemoriaCau
 
         public Block<T> block { get; private set; }
 
-        public CacheEvent(bool success, AccessType type)
-        {
-            this.type = type;
-            this.replacedNode = false;
-            this.replacedNodeTag = default(UInt32);
-            this.block = null;
-            this.success = success;
-        }
 
         public CacheEvent(bool success, AccessType type, Block<T> b)
         {
