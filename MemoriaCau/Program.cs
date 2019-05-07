@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -98,6 +99,10 @@ namespace MemoriaCau
             sb.AppendLine(string.Format("H: 0x{0:X}", h));
             sb.AppendLine(string.Format("Inici Dades(m): 0x{0:X}", m));
             sb.AppendLine(string.Format("Opció {0}: {1}", optIndex + 1, option.ToString()));
+            var distBits = cache.AdressDistribution;
+            sb.AppendLine("Distribució dels bits (per ordre):");
+            foreach(DictionaryEntry bits in distBits)
+                sb.AppendLine(string.Format("{0}: {1} bits", bits.Key, bits.Value));
             File.WriteAllText(fileExtraInfo.FullName, sb.ToString());
         }
 
