@@ -12,6 +12,41 @@
             "problemMatcher": "$tsc"
         },
         {
+            "label": "clean",
+            "type": "shell",
+            "linux": {
+                "command": "rm",
+                "args": [
+                    "-rfv",
+                    "bin/*",
+                    "obj/*"
+                ]
+            },
+            "windows": {
+                "command": "del",
+                "args": [
+                    "/S /Q",
+                    "bin/*",
+                    "obj/*"
+                ]
+            },
+            "options": {
+                "cwd": "${workspaceFolder}/MemoriaCau/"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "compress-release",
+            "type": "shell",
+            "command": "tar -czvf ${workspaceFolder}/release.tar.gz ${workspaceFolder}/MemoriaCau/bin/Release",
+            "dependsOn": [
+                "publish"
+            ],
+            "group": "build",
+            "problemMatcher": [
+            ]
+        },
+        {
             "label": "publish",
             "command": "dotnet",
             "type": "process",
@@ -25,7 +60,8 @@
                 "--self-contained"
             ],
             "problemMatcher": "$tsc",
-            "group": "build"
+            "group": "build",
+            "dependsOn":["clean"],
         },
         {
             "label": "watch",

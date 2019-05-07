@@ -3,3 +3,5 @@
 [Rr]elease/
 cache_solution/
 obj/
+bin/
+**.tar.gz
